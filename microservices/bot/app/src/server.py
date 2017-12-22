@@ -38,8 +38,7 @@ def bot():
             print ("Unreplied Message")
             if ((msgTime - firstMsgTime) <= 200):
                 print ("Replied under 200 seconds")
-                gif = getGif()
-                sendNoteWithImage(convId)
+                sendNote(convId)
                 updateAsReplied(convId)
             else:
                 updateAsReplied(convId)
@@ -137,7 +136,7 @@ def updateAsReplied(convId):
     print ("========================")
     print ("========================\n")
 
-def sendNoteWithImage(convId):
+def sendNote(convId):
     url = "https://api.intercom.io/conversations/" + convId + "/reply"
     bearer = "Bearer " + accessToken
     headers = {
