@@ -11,11 +11,10 @@ adminId = os.environ['ADMIN_ID']
 accessToken = os.environ['ACCESS_TOKEN']
 intercom = Client(personal_access_token=accessToken)
 dataUrl = "http://data.hasura/v1/query"
-giphyApiKey = os.environ['GIPHY_API_KEY']
 
 @app.route("/")
 def main():
-    return "Intercom bot is running"
+    return "Intercom bot is running. Check the Readme for setting up the webhook for your intercom workspace."
 
 @app.route("/bot", methods=['POST'])
 def bot():
@@ -41,6 +40,8 @@ def bot():
                 print ("Replied under 200 seconds")
                 gif = getGif()
                 sendNoteWithImage(convId)
+                updateAsReplied(convId)
+            else:
                 updateAsReplied(convId)
     return "OK"
 
@@ -69,6 +70,7 @@ def storeToDb(convId, msgTime):
     print ("Hasura Insert Resp =====")
     print (r.json)
     print ("========================")
+    print ("========================\n")
     respObj = r.json()
 
 
@@ -97,6 +99,10 @@ def fetchMessageTime(convId):
 
     r = requests.post(dataUrl, data=json.dumps(payload), headers=headers)
     respObj = r.json()
+    print ("Hasura fetch response ==")
+    print (respObj)
+    print ("========================")
+    print ("========================\n")
     if (len(respObj) == 0):
         return -1
     if (respObj[0]["replied"] == True):
@@ -126,7 +132,10 @@ def updateAsReplied(convId):
 
     r = requests.post(dataUrl, data=json.dumps(payload), headers=headers)
     respObj = r.json()
+    print ("Hasura update response ==")
     print (respObj)
+    print ("========================")
+    print ("========================\n")
 
 def sendNoteWithImage(convId):
     url = "https://api.intercom.io/conversations/" + convId + "/reply"
@@ -145,13 +154,8 @@ def sendNoteWithImage(convId):
     }
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     respObj = r.json()
+    print ("Intercom send response==")
     print (respObj)
+    print ("========================")
+    print ("========================\n")
 
-def getGif():
-    text = "awesome"
-    url = "http://api.giphy.com/v1/stickers/translate"
-    r = requests.get(url=url, params = {"api_key": giphyApiKey, "s": text})
-    respObj = r.json()
-    print (respObj)
-    gifUrl = respObj["data"]["embed_url"]
-    return gifUrl

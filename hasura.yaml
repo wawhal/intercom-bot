@@ -1,5 +1,6 @@
-description: Blank template for a Hasura project
-keywords: base, getting-started
+description: A simple intercom webhook that applauds your team members when they reply
+  quickly to your customers
+keywords: intercom, webhook, bot
 media: {}
-name: base
+name: intercom-bot
 platformVersion: v0.15.3
