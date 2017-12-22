@@ -145,7 +145,6 @@ def sendNoteWithImage(convId):
         "Content-type": "application/json",
         "Accept": "application/json"
     }
-    gif = getGif()
     payload = {
         "body": "That was fast 👍" ,
         "type": "admin",
