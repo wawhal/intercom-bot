@@ -31,11 +31,6 @@ items:
               secretKeyRef:
                 key: chatbot.admin.id
                 name: hasura-secrets
-          - name: GIPHY_API_KEY
-            valueFrom:
-              secretKeyRef:
-                key: giphy.api.key
-                name: hasura-secrets
           imagePullPolicy: IfNotPresent
           name: bot
           ports:
