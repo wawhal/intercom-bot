@@ -34,4 +34,4 @@ $ git commit -m "First commit"
 $ git push hasura master
 ```
 
-- Your intercom bot has been deployed. Whenever someone from your team replies to a lead within 200 seconds, he will be applauded :) 
+- Your intercom bot has been deployed. Whenever someone from your team replies to a lead within 200 seconds, they will be applauded :) 
