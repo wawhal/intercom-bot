@@ -1,11 +1,21 @@
 # intercom-bot
 
-This is a simple intercom bot that applauds your team members if they reply quickly. This project can also be used as a boilerplate if you want to make intercom bots.
+## Introduction
 
-## Prerequisites
+This is a simple intercom bot that applauds your team members if they reply quickly. This project can also be used as a boilerplate if you want to make intercom bots. I is a fun bot to boost the support team enthusiasm on Intercom and encourage quick replies.
 
-1. Intercom workspace
-2. [hasura CLI tool](https://docs.hasura.io/0.15/manual/install-hasura-cli.html)
+## How it works
+
+Whenever a message is replied to under 5 minutes, the user gets an internal note saying that they did a fantastic job :-D
+
+### Internal implementation
+
+1. When a user sends a message, it is passed through this webhook by Intercom.
+2. The webhook checks the presence of this conversation in the database. If it is present, no action is taken. If not, the conversation ID is inserted into the database along with the timestamp and the replied status.
+3. When the team member replies to the conversation, the webhook checks the database if this conversation has been replied to. If it is, no action is taken.
+4. If it is not replied to, the time difference is checked. If it is less than 5 minutes, an internal note is sent to that conversation applauding the team member.
+5. The conversation is marked as replied in the database.
+6. All the data operations are made using the Hasura Data API.
 
 ## Deployment Guide
 
@@ -34,4 +44,8 @@ $ git commit -m "First commit"
 $ git push hasura master
 ```
 
-- Your intercom bot has been deployed. Whenever someone from your team replies to a lead within 200 seconds, they will be applauded :) 
+- Your intercom bot has been deployed. Whenever someone from your team replies to a lead within 200 seconds, they will be applauded :)
+
+## Support
+
+If you happen to get stuck anywhere, please feel free to mail me at jaisontj@gmail.com. Also, if you find an error or a bug, you can report an issue [here](https;//github.com/wawhal/intercom-bot/issues)
