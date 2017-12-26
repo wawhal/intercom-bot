@@ -1,15 +1,11 @@
 from src import app
 from flask import jsonify, request
-from intercom.client import Client
-from giphypop import translate
 import requests
 import json
 import os
-import urllib.request
 
 adminId = os.environ['ADMIN_ID']
 accessToken = os.environ['ACCESS_TOKEN']
-intercom = Client(personal_access_token=accessToken)
 dataUrl = "http://data.hasura/v1/query"
 
 @app.route("/")
@@ -69,7 +65,7 @@ def storeToDb(convId, msgTime):
     print ("Hasura Insert Resp =====")
     print (r.json)
     print ("========================")
-    print ("========================\n")
+    print ("========================")
     respObj = r.json()
 
 
