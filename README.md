@@ -54,4 +54,4 @@ If you are looking for any extra intercom features other than sending messages a
 
 ## Support
 
-If you happen to get stuck anywhere, please feel free to mail me at jaisontj@gmail.com. Also, if you find an error or a bug, you can report an issue [here](https;//github.com/wawhal/intercom-bot/issues)
+If you happen to get stuck anywhere, please feel free to mail me at rishichandra.wawhal@gmail.com. Also, if you find an error or a bug, you can report an issue [here](https;//github.com/wawhal/intercom-bot/issues).
