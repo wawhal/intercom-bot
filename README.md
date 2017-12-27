@@ -46,6 +46,12 @@ $ git push hasura master
 
 - Your intercom bot has been deployed. Whenever someone from your team replies to a lead within 200 seconds, they will be applauded :)
 
+## How to modify it
+
+This webhook is written in Python using the Flask framework. The source code lives in the `microservices/bot/app/src` directory. If you are familiar with Flask, you can jump right into it by modifying the `server.py` file.
+
+If you are looking for any extra intercom features other than sending messages and sending notes, you might want to look at the intercom API reference.
+
 ## Support
 
 If you happen to get stuck anywhere, please feel free to mail me at jaisontj@gmail.com. Also, if you find an error or a bug, you can report an issue [here](https;//github.com/wawhal/intercom-bot/issues)
