@@ -1,6 +1,8 @@
 description: A simple intercom webhook that applauds your team members when they reply
   quickly to your customers
 keywords: intercom, webhook, bot, chatbot
-media: {}
+media:
+  images:
+  - https://github.com/wawhal/intercom-bot/raw/master/assets/intercom-bot.png
 name: intercom-bot
 platformVersion: v0.15.3
